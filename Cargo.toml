@@ -3,6 +3,22 @@ name = "markdown-editor"
 version = "0.1.0"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
+gloo = "0.11.0"
+yew-autoprops = "0.4.1"
+yew-router = "0.18.0"
+
+[dependencies.yew]
+version = "0.21.0"
+features = ["csr"]
+
+[dependencies.web-sys]
+version = "0.3.67"
+features = [
+	"Event",
+	"EventTarget"
+]
+
+[profile.release]
+lto = true
+opt-level = "s"

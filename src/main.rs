@@ -1,3 +1,5 @@
+use markdown_editor::components::app::*;
+
 fn main() {
-    println!("Hello, world!");
+    yew::Renderer::<App>::new().render();
 }
