@@ -1,13 +1,22 @@
 use yew::prelude::*;
 
+#[derive(Clone, PartialEq)]
+pub enum Theme {
+    Default,
+}
+
 pub enum ThemeAction {}
 
 #[derive(Clone, PartialEq)]
-pub struct ThemeState {}
+pub struct ThemeState {
+    pub current: Theme,
+}
 
 impl ThemeState {
     fn default() -> Self {
-        Self {}
+        Self {
+            current: Theme::Default,
+        }
     }
 }
 
@@ -36,6 +45,5 @@ pub fn theme_context_provider(#[prop_or_default] children: &Html) -> Html {
 
 #[hook]
 pub fn use_theme_context() -> ThemeContext {
-    let ctx = use_context::<ThemeContext>().expect("ThemeContext must be found");
-    ctx
+    use_context::<ThemeContext>().expect("ThemeContext must be found")
 }
