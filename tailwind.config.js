@@ -8,7 +8,10 @@ module.exports = {
                     typography: "var(--color-typography)",
                     buttons: "var(--color-buttons)",
                 }
-			}
+			},
+            backgroundImage: {
+                skin: "var(--background)"
+            }
 		},
   	},
   	plugins: [],

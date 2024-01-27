@@ -16,6 +16,7 @@ features = ["csr"]
 version = "0.3.67"
 features = [
 	"Event",
+    "MouseEvent",
 	"EventTarget"
 ]
 

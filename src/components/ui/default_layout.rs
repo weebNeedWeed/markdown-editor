@@ -12,7 +12,7 @@ pub fn default_layout() -> Html {
     html! {
         <div class={classes!(
                 applied_theme,
-                "fixed", "bg-skin-primary",
+                "fixed", "bg-skin",
                 "w-screen", "h-screen")}>
             <header>
                 <NavBar />

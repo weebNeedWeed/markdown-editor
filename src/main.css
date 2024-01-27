@@ -6,7 +6,7 @@
 	:root {
 		--color-primary: #FFDFD3;
         --color-typography: #957DAD;
-        --color-buttons: #FEC8D8;
+        --color-buttons:#E0BBE4;
+        --background: linear-gradient(178deg, rgba(255, 223, 211, 1) 35%, rgba(254, 200, 216, 1) 100%);
 	} 
-
 }
