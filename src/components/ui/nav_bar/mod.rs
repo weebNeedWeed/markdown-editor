@@ -11,7 +11,7 @@ pub mod setting_button;
 pub fn nav_bar() -> Html {
     html! {
         <nav class="p-4 text-skin-typography">
-            <div class="flex flex-row w-full items-center justify-between">
+            <div class="flex flex-row w-full items-stretch justify-between">
                 <div class="flex flex-row items-center gap-x-4">
                     <CreateButton />
                     <SaveButton />

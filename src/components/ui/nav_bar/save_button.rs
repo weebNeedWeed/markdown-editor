@@ -1,3 +1,4 @@
+use crate::components::button::*;
 use crate::utils::icons::*;
 use yew::prelude::*;
 
@@ -10,7 +11,7 @@ pub fn save_button() -> Html {
     };
     html! {
         <div class="relative">
-            <button {onclick} class="p-2.5 gap-x-2 shadow-lg shadow-skin-buttons bg-skin-buttons transition-all hover:opacity-80 rounded-md flex justify-start items-center">
+            <Button {onclick}>
                 <span class="text-md text-skin-typography font-medium">
                     {"Lưu"}
                 </span>
@@ -18,7 +19,7 @@ pub fn save_button() -> Html {
                 <span class="border-s-2 h-5 border-skin-typography my-auto"></span>
 
                 <CaretDownFill class="fill-skin-typography" />
-            </button>
+            </Button>
 
             if *displaying {
                 <div class="absolute top-full w-full shadow-lg shadow-skin-buttons bg-skin-buttons">
