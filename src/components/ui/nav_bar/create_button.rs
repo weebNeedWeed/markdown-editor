@@ -5,13 +5,13 @@ use yew::prelude::*;
 #[function_component(CreateButton)]
 pub fn create_button() -> Html {
     let displaying = use_state(|| false);
-    let onclick = {
+    let handle_open_dropdown = {
         let displaying = displaying.clone();
         Callback::from(move |_| displaying.set(!*displaying))
     };
     html! {
         <div class="relative">
-            <Button {onclick}>
+            <Button onclick={handle_open_dropdown}>
                 <span class="text-md text-skin-typography font-medium">
                     {"Tạo mới"}
                 </span>

@@ -1,4 +1,5 @@
 use super::ui::default_layout::*;
+use crate::contexts::file_context::*;
 use crate::contexts::theme_context::*;
 use yew::prelude::*;
 
@@ -6,7 +7,9 @@ use yew::prelude::*;
 pub fn app() -> Html {
     html! {
         <ThemeContextProvider>
-            <DefaultLayout />
+            <FileContextProvider>
+                <DefaultLayout />
+            </FileContextProvider>
         </ThemeContextProvider>
     }
 }

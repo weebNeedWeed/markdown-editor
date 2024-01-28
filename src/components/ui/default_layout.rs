@@ -1,6 +1,5 @@
-use crate::contexts::theme_context::{self, use_theme_context, Theme};
-
 use super::nav_bar::*;
+use crate::contexts::theme_context::{use_theme_context, Theme};
 use yew::prelude::*;
 
 #[function_component(DefaultLayout)]

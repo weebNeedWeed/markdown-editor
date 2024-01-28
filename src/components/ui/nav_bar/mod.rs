@@ -1,11 +1,13 @@
 use create_button::*;
 use save_button::*;
 use setting_button::*;
+use toggle_button::*;
 use yew::prelude::*;
 
 pub mod create_button;
 pub mod save_button;
 pub mod setting_button;
+pub mod toggle_button;
 
 #[function_component(NavBar)]
 pub fn nav_bar() -> Html {
@@ -17,7 +19,10 @@ pub fn nav_bar() -> Html {
                     <SaveButton />
                 </div>
 
-                <SettingButton />
+                <div class="flex items-stretch gap-x-4">
+                    <SettingButton />
+                    <ToggleButton />
+                </div>
             </div>
         </nav>
     }
