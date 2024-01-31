@@ -7,12 +7,12 @@ use yew::prelude::*;
 pub fn default_layout() -> Html {
     let theme_context = use_theme_context();
     let applied_theme = match theme_context.current {
-        Theme::Default => "theme-skin-tone",
+        Theme::Default => "",
     };
     html! {
         <div class={classes!(
                 applied_theme,
-                "fixed", "bg-skin",
+                "fixed", "bg-skin-background",
                 "w-screen", "h-screen", "flex", "flex-col")}>
             <header>
                 <NavBar />

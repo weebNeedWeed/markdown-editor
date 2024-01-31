@@ -18,7 +18,7 @@ pub fn nav_bar() -> Html {
     };
     html! {
         <nav
-            class={classes!(String::from("p-4 text-skin-typography transition-all"),
+            class={classes!(String::from("p-4 pb-0 text-skin-typography transition-all"),
                 if *open { "mt-0" } else { "mt-[-100px]" } )}>
             <div class="flex flex-row w-full items-stretch justify-between">
                 <div class="flex flex-row items-center gap-x-4">
