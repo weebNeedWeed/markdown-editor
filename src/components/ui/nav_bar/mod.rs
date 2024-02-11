@@ -22,7 +22,7 @@ pub fn nav_bar() -> Html {
                 if *open { "mt-0" } else { "mt-[-100px]" } )}>
             <div class="flex flex-row w-full items-stretch justify-between">
                 <div class="flex flex-row items-center gap-x-4">
-                    <CreateButton />
+                    <CreateButton open={*open.clone()} />
                     <SaveButton />
                 </div>
 

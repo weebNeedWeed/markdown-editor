@@ -1,5 +1,5 @@
+use super::super::editor::*;
 use super::nav_bar::*;
-use crate::components::ui::editor::*;
 use crate::contexts::theme_context::{use_theme_context, Theme};
 use yew::prelude::*;
 

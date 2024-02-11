@@ -2,13 +2,22 @@ use crate::components::button::*;
 use crate::utils::icons::*;
 use yew::prelude::*;
 
+#[yew_autoprops::autoprops]
 #[function_component(CreateButton)]
-pub fn create_button() -> Html {
+pub fn create_button(open: bool) -> Html {
     let displaying = use_state(|| false);
     let handle_open_dropdown = {
         let displaying = displaying.clone();
         Callback::from(move |_| displaying.set(!*displaying))
     };
+    {
+        let displaying = displaying.clone();
+        use_effect_with(open, move |open| {
+            if !open {
+                displaying.set(false);
+            }
+        });
+    }
     html! {
         <div class="relative">
             <Button onclick={handle_open_dropdown}>

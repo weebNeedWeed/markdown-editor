@@ -2,6 +2,7 @@ use action_bar::*;
 use yew::prelude::*;
 
 pub mod action_bar;
+pub mod action_button;
 
 #[function_component(Editor)]
 pub fn editor() -> Html {
