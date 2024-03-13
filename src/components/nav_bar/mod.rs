@@ -1,17 +1,17 @@
-use create_button::*;
+use creates::CreateDropdown;
 use save_button::*;
 use setting_button::*;
 use toggle_button::*;
 use yew::prelude::*;
 
-pub mod create_button;
+pub mod creates;
 pub mod save_button;
 pub mod setting_button;
 pub mod toggle_button;
 
 #[function_component(NavBar)]
 pub fn nav_bar() -> Html {
-    let open = use_state(|| false);
+    let open = use_state(|| true);
     let handle_toggle = {
         let open = open.clone();
         Callback::from(move |_| open.set(!*open))
@@ -22,8 +22,8 @@ pub fn nav_bar() -> Html {
                 if *open { "mt-0" } else { "mt-[-100px]" } )}>
             <div class="flex flex-row w-full items-stretch justify-between">
                 <div class="flex flex-row items-center gap-x-4">
-                    <CreateButton open={*open.clone()} />
-                    <SaveButton />
+                    <CreateDropdown open={*open.clone()} />
+                    <SaveButton open={*open.clone()} />
                 </div>
 
                 <div class="flex items-stretch gap-x-4">

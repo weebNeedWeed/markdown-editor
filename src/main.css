@@ -4,10 +4,14 @@
 
 @layer base {
 	:root {
-		--color-primary: #FFDFD3;
+		--color-primary: #8D5524;
         --color-typography: #fff;
         --color-buttons: #8D5524;
         --color-secondary:#FFDBAC;
         --color-background: #fff;
 	} 
+
+    ul, ol {
+        list-style: revert;
+    }
 }

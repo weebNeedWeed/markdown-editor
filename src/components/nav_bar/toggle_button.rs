@@ -13,7 +13,7 @@ pub fn toggle_button(ToggleButtonProps { onclick, open }: &ToggleButtonProps) ->
     html! {
         <Button
             class={
-                classes!("px-3.5", if !*open {String::from("fixed top-4 py-3.5")} else {String::default()})}
+                classes!("px-3.5","z-30", if !*open {String::from("fixed top-4 py-3.5")} else {String::default()})}
             onclick={onclick.clone()}>
             if *open {
                 <Close class="stroke-skin-typography"/>

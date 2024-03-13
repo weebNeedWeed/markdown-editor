@@ -24,7 +24,7 @@ pub fn button(
     };
 
     html! {
-        <button onclick={onclick} class={classes!(String::from("p-2.5 gap-x-2 shadow-lg shadow-skin-buttons bg-skin-buttons transition-all hover:opacity-80 rounded-md flex justify-start items-center active:scale-75"),class.clone())}>
+        <button onclick={onclick} class={classes!(String::from("p-2.5 gap-x-2 shadow shadow-skin-buttons bg-skin-buttons transition-all hover:opacity-80 rounded flex justify-start items-center active:scale-90"),class.clone())}>
             {children.clone()}
         </button>
     }

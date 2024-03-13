@@ -1,5 +1,6 @@
-use super::super::editor::*;
-use super::nav_bar::*;
+use crate::components::editor::Editor;
+use crate::components::nav_bar::NavBar;
+use crate::components::preview_window::PreviewWindow;
 use crate::contexts::theme_context::{use_theme_context, Theme};
 use yew::prelude::*;
 
@@ -13,15 +14,15 @@ pub fn default_layout() -> Html {
         <div class={classes!(
                 applied_theme,
                 "fixed", "bg-skin-background",
+                "w-full", "h-full",
                 "w-screen", "h-screen", "flex", "flex-col")}>
             <header>
                 <NavBar />
             </header>
 
-            <div class="w-full p-4 flex flex-row items-stretch grow gap-x-4">
+            <div class="p-4 flex flex-row max-h-full h-full grow gap-x-4 overflow-auto">
                 <Editor />
-                <div class="h-full w-[calc(50%-0.5rem)] border-4 border-skin-buttons rounded-xl shadow-md shadow-lg shadow-skin-buttons">
-                </div>
+                <PreviewWindow />
             </div>
         </div>
     }

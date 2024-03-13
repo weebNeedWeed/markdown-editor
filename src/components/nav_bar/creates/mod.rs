@@ -1,10 +1,14 @@
 use crate::components::button::*;
 use crate::utils::icons::*;
+use upload_button::UploadButton;
 use yew::prelude::*;
 
+pub mod create_button;
+pub mod upload_button;
+
 #[yew_autoprops::autoprops]
-#[function_component(CreateButton)]
-pub fn create_button(open: bool) -> Html {
+#[function_component(CreateDropdown)]
+pub fn create_dropdown(open: bool) -> Html {
     let displaying = use_state(|| false);
     let handle_open_dropdown = {
         let displaying = displaying.clone();
@@ -31,16 +35,13 @@ pub fn create_button(open: bool) -> Html {
             </Button>
 
             if *displaying {
-                <div class="absolute top-full w-full shadow-lg shadow-skin-buttons bg-skin-buttons">
+                <div class="absolute z-10 top-full w-full shadow shadow-skin-buttons bg-skin-buttons">
                     <div class="flex flex-col items-center justify-start">
                         <button class="w-full gap-x-2 py-2 transition-all justify-center hover:opacity-80 flex items-center">
                             <PlusSquare class="stroke-skin-typography"/>
                             {"Tạo mới"}
                         </button>
-                        <button class="w-full gap-x-2 py-2 transition-all justify-center hover:opacity-80 flex items-center">
-                            <CloudArrowUp class="stroke-skin-typography"/>
-                            {"Tải lên"}
-                        </button>
+                        <UploadButton />
                     </div>
                 </div>
             }
