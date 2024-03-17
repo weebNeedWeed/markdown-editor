@@ -49,7 +49,7 @@ pub fn edit_section() -> Html {
                 value={markdown.state().text}
                 oninput={on_input}
                 onkeydown={on_key_down}
-                class="w-full min-h-full px-5 resize-none outline-none text-skin-primary font-semibold text-xl">
+                class="w-full min-h-full px-5 resize-none outline-none font-normal text-lg">
             </textarea>
         </div>
     }

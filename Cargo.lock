@@ -716,8 +716,11 @@ name = "markdown-editor"
 version = "0.1.0"
 dependencies = [
  "gloo 0.11.0",
+ "js-sys",
  "markdown",
+ "serde",
  "serde_json",
+ "urlencoding",
  "wasm-bindgen-futures",
  "web-sys",
  "yew",

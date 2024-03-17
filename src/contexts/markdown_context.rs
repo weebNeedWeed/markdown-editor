@@ -1,6 +1,7 @@
 use std::collections::HashMap;
 use std::ops::Deref;
 
+use gloo::file::Blob;
 use gloo::storage::{LocalStorage, Storage};
 use serde_json::Value;
 use yew::prelude::*;
@@ -70,12 +71,6 @@ impl Markdown {
 impl MarkdownContext {
     pub fn new(inner: UseStateHandle<Markdown>) -> Self {
         Self { inner }
-    }
-
-    pub fn add_markdown(&self, md: Markdown) -> Result<(), &'static str> {
-        md.save_to_storage()?;
-        self.inner.set(md);
-        Ok(())
     }
 
     pub fn update_markdown(&self, md: Markdown) -> Result<(), &'static str> {

@@ -1,11 +1,11 @@
 use creates::CreateDropdown;
-use save_button::*;
+use saves::SaveDropdown;
 use setting_button::*;
 use toggle_button::*;
 use yew::prelude::*;
 
 pub mod creates;
-pub mod save_button;
+pub mod saves;
 pub mod setting_button;
 pub mod toggle_button;
 
@@ -23,7 +23,7 @@ pub fn nav_bar() -> Html {
             <div class="flex flex-row w-full items-stretch justify-between">
                 <div class="flex flex-row items-center gap-x-4">
                     <CreateDropdown open={*open.clone()} />
-                    <SaveButton open={*open.clone()} />
+                    <SaveDropdown open={*open.clone()} />
                 </div>
 
                 <div class="flex items-stretch gap-x-4">

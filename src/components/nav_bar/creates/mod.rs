@@ -1,9 +1,12 @@
 use crate::components::button::*;
 use crate::utils::icons::*;
+use create_button::CreateButton;
+use open_recent::OpenRecent;
 use upload_button::UploadButton;
 use yew::prelude::*;
 
 pub mod create_button;
+pub mod open_recent;
 pub mod upload_button;
 
 #[yew_autoprops::autoprops]
@@ -22,6 +25,7 @@ pub fn create_dropdown(open: bool) -> Html {
             }
         });
     }
+
     html! {
         <div class="relative">
             <Button onclick={handle_open_dropdown}>
@@ -37,14 +41,16 @@ pub fn create_dropdown(open: bool) -> Html {
             if *displaying {
                 <div class="absolute z-10 top-full w-full shadow shadow-skin-buttons bg-skin-buttons">
                     <div class="flex flex-col items-center justify-start">
-                        <button class="w-full gap-x-2 py-2 transition-all justify-center hover:opacity-80 flex items-center">
-                            <PlusSquare class="stroke-skin-typography"/>
-                            {"Tạo mới"}
-                        </button>
+                        <CreateButton />
                         <UploadButton />
+
+                        <hr class="w-10/12 h-[1px] bg-skin-typography" />
+
+                        <OpenRecent />
                     </div>
                 </div>
             }
+
         </div>
     }
 }

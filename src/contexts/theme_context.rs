@@ -12,7 +12,7 @@ pub struct ThemeState {
     pub current: Theme,
 }
 
-impl ThemeState {
+impl Default for ThemeState {
     fn default() -> Self {
         Self {
             current: Theme::Default,

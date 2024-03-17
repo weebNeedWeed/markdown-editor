@@ -20,7 +20,7 @@ pub fn upload_button() -> Html {
         wasm_bindgen_futures::spawn_local(async move {
             let text = gloo::file::futures::read_as_text(&blob).await.unwrap();
             let md = Markdown::new(key, AttrValue::from(text));
-            markdown.add_markdown(md).unwrap();
+            markdown.update_markdown(md).unwrap();
             markdown.save_to_storage().unwrap();
         });
     });
