@@ -1,7 +1,6 @@
 use std::collections::HashMap;
 use std::ops::Deref;
 
-use gloo::file::Blob;
 use gloo::storage::{LocalStorage, Storage};
 use serde_json::Value;
 use yew::prelude::*;
@@ -66,11 +65,24 @@ impl Markdown {
             Err(e) => Err(e.to_string().leak()),
         }
     }
+
+    pub fn remove_from_storage(&self) -> Result<(), &'static str> {
+        let key = match self.key.as_ref() {
+            Some(v) => v,
+            None => return Err("Key must be found"),
+        };
+        LocalStorage::delete(key);
+        Ok(())
+    }
 }
 
 impl MarkdownContext {
     pub fn new(inner: UseStateHandle<Markdown>) -> Self {
         Self { inner }
+    }
+
+    pub fn set_markdown(&self, md: Markdown) {
+        self.inner.set(md);
     }
 
     pub fn update_markdown(&self, md: Markdown) -> Result<(), &'static str> {

@@ -26,7 +26,7 @@ pub fn upload_button() -> Html {
     });
 
     html! {
-        <form action="w-full">
+        <form class="w-full">
             <label for="upload_button" class="cursor-pointer gap-x-2 w-full py-2 transition-all justify-center hover:opacity-80 flex items-center">
                 <CloudArrowUp class="stroke-skin-typography"/>
                 {"Tải lên"}
