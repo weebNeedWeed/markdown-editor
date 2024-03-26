@@ -4,8 +4,8 @@ use crate::components::preview_window::PreviewWindow;
 use crate::contexts::theme_context::{use_theme_context, Theme};
 use yew::prelude::*;
 
-#[function_component(DefaultLayout)]
-pub fn default_layout() -> Html {
+#[function_component(HomePage)]
+pub fn home_page() -> Html {
     let theme_context = use_theme_context();
     let applied_theme = match theme_context.current {
         Theme::Default => "",
