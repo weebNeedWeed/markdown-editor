@@ -9,6 +9,12 @@
         --color-background: #fff;
 	} 
 
+    .theme-black {
+		--color-primary: #000;
+        --color-typography: #fff;
+        --color-background: #fff;
+    }
+
     ul, ol {
         list-style: revert;
     }

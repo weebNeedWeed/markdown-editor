@@ -1,5 +1,5 @@
+use crate::contexts::config_context::ConfigContextProvider;
 use crate::contexts::markdown_context::MarkdownContextProvider;
-use crate::contexts::theme_context::*;
 use crate::pages::home::HomePage;
 use crate::pages::setting::SettingPage;
 use yew::prelude::*;
@@ -25,11 +25,11 @@ fn switch(route: Route) -> Html {
 pub fn app() -> Html {
     html! {
         <BrowserRouter>
-            <ThemeContextProvider>
+            <ConfigContextProvider>
                 <MarkdownContextProvider>
                     <Switch<Route> render={switch} />
                 </MarkdownContextProvider>
-            </ThemeContextProvider>
+            </ConfigContextProvider>
         </BrowserRouter>
     }
 }
