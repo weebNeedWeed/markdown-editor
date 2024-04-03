@@ -111,7 +111,7 @@ impl PartialEq for MarkdownContext {
 
 #[derive(Clone, Debug)]
 pub struct MarkdownContext {
-    inner: UseStateHandle<Markdown>,
+    pub inner: UseStateHandle<Markdown>,
 }
 
 #[yew_autoprops::autoprops]

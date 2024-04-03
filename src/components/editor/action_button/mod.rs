@@ -1,5 +1,11 @@
 use yew::prelude::*;
 
+pub mod bold;
+pub mod heading;
+pub mod italic;
+pub mod redo;
+pub mod undo;
+
 #[derive(Properties, Clone, PartialEq)]
 pub struct ActionButtonProps {
     pub icon: Html,

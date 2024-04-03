@@ -1,4 +1,5 @@
-use web_sys::HtmlTextAreaElement;
+use js_sys::wasm_bindgen::JsCast;
+use web_sys::{HtmlDocument, HtmlTextAreaElement};
 use yew::prelude::*;
 
 use crate::contexts::markdown_context::{use_markdown, Markdown};
@@ -41,11 +42,25 @@ pub fn edit_section() -> Html {
                 let md = Markdown::new(markdown.key.clone(), AttrValue::from(current_value));
                 markdown.update_markdown(md).unwrap();
             }
+
+            if e.ctrl_key() && e.key().eq_ignore_ascii_case("Z") {
+                e.prevent_default();
+                let doc: HtmlDocument = gloo::utils::document().dyn_into().unwrap();
+                doc.exec_command("undo").unwrap();
+            }
+
+            if e.ctrl_key() && e.key().eq_ignore_ascii_case("Y") {
+                e.prevent_default();
+                let doc: HtmlDocument = gloo::utils::document().dyn_into().unwrap();
+                doc.exec_command("redo").unwrap();
+            }
         })
     };
+
     html! {
         <div class="w-full h-full overflow-y-hidden pb-4 pt-2">
             <textarea
+                id="edit_section"
                 value={markdown.state().text}
                 oninput={on_input}
                 onkeydown={on_key_down}

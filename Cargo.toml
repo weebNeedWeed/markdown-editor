@@ -21,7 +21,8 @@ features = ["csr"]
 [dependencies.web-sys]
 version = "0.3.67"
 features = [
-    "HtmlAnchorElement"
+    "HtmlAnchorElement",
+    "HtmlDocument"
 ]
 
 [profile.release]
