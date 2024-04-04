@@ -15,6 +15,13 @@
         --color-background: #fff;
     }
 
+    .theme-blue {
+		--color-primary: #7AA2E3;
+        --color-typography: #fff;
+        --color-background: #fff;
+    }
+
+
     ul, ol {
         list-style: revert;
     }

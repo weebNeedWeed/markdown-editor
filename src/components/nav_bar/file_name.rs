@@ -38,14 +38,14 @@ pub fn file_name() -> Html {
     }
     html! {
         <div class="flex items-center h-full">
-            <span class="h-full flex items-center bg-skin-buttons px-2.5 rounded-s-md">
+            <span class="h-full flex items-center bg-skin-buttons px-2.5 rounded-s">
                 <FileText class="fill-skin-typography" />
             </span>
             <input
                 ref={node_ref}
                 onchange={handle_change_file_name}
                 type="text"
-                class="h-full font-semibold w-auto border-[0.2rem] px-2.5 border-l-0 border-skin-buttons rounded-e-md outline-none text-black" />
+                class="h-full font-semibold w-auto border-[0.2rem] px-2.5 border-l-0 border-skin-buttons rounded-e outline-none text-black" />
         </div>
     }
 }

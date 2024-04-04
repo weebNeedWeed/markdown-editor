@@ -16,8 +16,15 @@ pub fn preview_window() -> Html {
         "prose-code:font-normal",
         "prose-code:rounded-[0.3125rem]",
         "prose-code:overflow-auto",
-        "prose-a:no-underline",
         "prose-a:text-info",
+        "prose-table:border-[1px]",
+        "prose-table:border-black",
+        "prose-tr:border-[1px]",
+        "prose-tr:border-black",
+        "prose-td:border-[1px]",
+        "prose-td:border-black",
+        "prose-th:border-[1px]",
+        "prose-th:border-black",
         "print:block"
     );
     let markdown = use_markdown();

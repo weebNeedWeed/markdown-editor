@@ -11,6 +11,10 @@ pub struct ModalProps {
     pub onclose: Callback<MouseEvent>,
     #[prop_or_default]
     pub children: Html,
+    #[prop_or(None)]
+    pub onsubmit: Option<Callback<MouseEvent>>,
+    #[prop_or_default]
+    pub submit_title: AttrValue,
 }
 
 #[function_component(Modal)]
@@ -34,8 +38,11 @@ pub fn modal(props: &ModalProps) -> Html {
                     {props.children.clone()}
                 </div>
 
-                <div class="shrink-0 grow-0 flex items-center justify-end">
+                <div class="shrink-0 grow-0 gap-x-2 flex items-center justify-end">
                     <ModalButton onclick={props.onclose.clone()} title={"Đóng"}/>
+                    if props.onsubmit.is_some() {
+                        <ModalButton classes="bg-skin-buttons text-skin-primary" onclick={props.onsubmit.clone().unwrap()} title={props.submit_title.clone()}/>
+                    }
                 </div>
             </div>
         </div>

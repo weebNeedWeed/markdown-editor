@@ -1,11 +1,28 @@
 use crate::contexts::markdown_context::{use_markdown, Markdown};
-use crate::utils::icons::*;
 use js_sys::wasm_bindgen::JsCast;
 use web_sys::HtmlTextAreaElement;
 use yew::prelude::*;
 
 #[function_component(Heading)]
 pub fn heading() -> Html {
+    html! {
+        <div class="group relative cursor-pointer">
+            <span class="font-semibold text-skin-primary px-2.5 text-lg leading-3 py-1"> {"H"} </span>
+            <div class="absolute top-full left-[-1rem] w-32 p-2 rounded bg-skin-primary hidden group-hover:block text-skin-typography shadow-md">
+                <div class="w-full flex flex-col gap-y-2">
+                    <HeadingButton title={AttrValue::from("Heading 1")} insert_value={String::from("# ")} />
+                    <HeadingButton title={AttrValue::from("Heading 2")} insert_value={String::from("## ")} />
+                    <HeadingButton title={AttrValue::from("Heading 3")} insert_value={String::from("### ")} />
+                    <HeadingButton title={AttrValue::from("Heading 4")} insert_value={String::from("#### ")} />
+                </div>
+            </div>
+        </div>
+    }
+}
+
+#[yew_autoprops::autoprops]
+#[function_component(HeadingButton)]
+pub fn heading_button(title: AttrValue, insert_value: &String) -> Html {
     let markdown = use_markdown();
     let make_onclick_cb = move |txt: String| {
         Callback::from(move |_: MouseEvent| {
@@ -39,41 +56,9 @@ pub fn heading() -> Html {
         })
     };
     html! {
-        <div class="group relative cursor-pointer">
-            <span class="font-semibold text-lg text-skin-primary px-2 py-1"> {"H"} </span>
-            <div class="absolute top-full left-[-1rem] w-28 p-2 rounded bg-skin-primary hidden group-hover:block text-skin-typography shadow-md">
-                <div class="w-full flex flex-col gap-y-2">
-                    <button onclick={make_onclick_cb.clone()(String::from("# "))} class="w-full h-5 flex items-center text-sm justify-around">
-                        <TypeH1 class="fill-skin-typography"/>
-                        {"Heading 1"}
-                    </button>
-
-                    <button onclick={make_onclick_cb.clone()(String::from("## "))} class="w-full h-5 flex items-center text-sm justify-around">
-                        <TypeH2 class="fill-skin-typography"/>
-                        {"Heading 2"}
-                    </button>
-
-                    <button onclick={make_onclick_cb.clone()(String::from("### "))} class="w-full h-5 flex items-center text-sm justify-around">
-                        <TypeH3 class="fill-skin-typography"/>
-                        {"Heading 3"}
-                    </button>
-
-                    <button onclick={make_onclick_cb.clone()(String::from("#### "))} class="w-full h-5 flex items-center text-sm justify-around">
-                        <TypeH4 class="fill-skin-typography"/>
-                        {"Heading 4"}
-                    </button>
-
-                    <button onclick={make_onclick_cb.clone()(String::from("##### "))} class="w-full h-5 flex items-center text-sm justify-around">
-                        <TypeH5 class="fill-skin-typography"/>
-                        {"Heading 5"}
-                    </button>
-
-                    <button onclick={make_onclick_cb.clone()(String::from("###### "))} class="w-full h-5 flex items-center text-sm justify-around">
-                        <TypeH6 class="fill-skin-typography"/>
-                        {"Heading 6"}
-                    </button>
-                </div>
-            </div>
-        </div>
+        <button onclick={make_onclick_cb.clone()(String::from(insert_value))} class="w-full h-6 flex items-center text-sm justify-around border-b-2 border-skin-primary hover:border-skin-typography transition-all">
+            <span class="text-skin-typography">{"H"}{insert_value.len()}</span>
+            {title}
+        </button>
     }
 }

@@ -9,6 +9,7 @@ use yew::prelude::*;
 pub enum Theme {
     Default,
     Black,
+    Blue,
 }
 
 pub enum ConfigAction {
@@ -55,7 +56,6 @@ impl Reducible for ConfigState {
                 self.save_to_storage();
                 return Rc::from(new_ins);
             }
-            _ => self,
         }
     }
 }

@@ -36,6 +36,16 @@ pub fn theme_choosing_form() -> Html {
                 </span>
             </label>
 
+            <label onclick={make_onclick_fn(Theme::Blue)} class="flex w-full bg-transparent rounded-md px-2 py-3 border-2 border-[#7AA2E3] cursor-pointer">
+                <input type="radio" name="theme" checked={value.eq(&Theme::Blue)} class="accent-[#7AA2E3] self-start" />
+                <span class="w-10 h-10 bg-[#7AA2E3] ml-3 rounded flex items-center justify-center text-white font-semibold">
+                    {"A"}
+                </span>
+                <span class="w-10 h-10 bg-white border-2 border-black ml-3 rounded flex items-center justify-center text-[#7AA2E3] font-semibold">
+                    {"A"}
+                </span>
+            </label>
+
         </form>
 
     }

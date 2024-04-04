@@ -13,7 +13,7 @@ pub struct ModalButtonProps {
 pub fn modal_button(props: &ModalButtonProps) -> Html {
     html! {
         <button onclick={props.onclick.clone()} class={classes!(
-            AttrValue::from("rounded-md px-3 py-2 bg-neutral-500/50 font-semibold ransition-all active:scale-90"),
+            AttrValue::from("rounded-md px-3 py-2 bg-neutral-600/50 text-skin-typography font-semibold ransition-all active:scale-90"),
             props.classes.clone())}>
             {props.title.clone()}
         </button>

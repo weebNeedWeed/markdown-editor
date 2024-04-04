@@ -2,8 +2,13 @@ use yew::prelude::*;
 
 pub mod bold;
 pub mod heading;
+pub mod image;
 pub mod italic;
+pub mod link;
+pub mod quote;
 pub mod redo;
+pub mod strikethrough;
+pub mod table;
 pub mod undo;
 
 #[derive(Properties, Clone, PartialEq)]
