@@ -1,5 +1,4 @@
-use crate::contexts::markdown_context::use_markdown;
-use markdown::{to_html_with_options, CompileOptions, Options, ParseOptions};
+use crate::{contexts::markdown_context::use_markdown, utils::convert_to_html::convert_to_html};
 use yew::prelude::*;
 
 #[function_component(PreviewWindow)]
@@ -28,21 +27,13 @@ pub fn preview_window() -> Html {
         "print:block"
     );
     let markdown = use_markdown();
-    let options = Options {
-        parse: ParseOptions::gfm(),
-        compile: CompileOptions {
-            allow_dangerous_html: true,
-            allow_dangerous_protocol: true,
-            ..CompileOptions::default()
-        },
-    };
-    let preview_md = to_html_with_options(markdown.text.as_str(), &options).unwrap();
+    let preview_md = convert_to_html(markdown.text.as_str());
     let md_html = Html::from_html_unchecked(preview_md.into());
     html! {
         <div class="max-h-full w-[calc(50%-0.5rem)] border-4 border-skin-buttons rounded shadow-md shadow-lg shadow-skin-buttons overflow-auto px-4 py-0.5">
-            <artical class={classes}>
+            <article class={classes} id="preview_box">
                 {md_html}
-            </artical>
+            </article>
         </div>
     }
 }

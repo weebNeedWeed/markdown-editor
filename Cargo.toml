@@ -13,6 +13,7 @@ js-sys = "0.3.69"
 serde = { version = "1.0", features = ["derive"] }
 urlencoding = "2.1.3"
 yew-router = "0.18.0"
+regex = "1.10.4"
 
 [dependencies.yew]
 version = "0.21.0"
@@ -22,7 +23,9 @@ features = ["csr"]
 version = "0.3.67"
 features = [
     "HtmlAnchorElement",
-    "HtmlDocument"
+    "HtmlDocument",
+    "StyleSheetList",
+    "StyleSheet"
 ]
 
 [profile.release]

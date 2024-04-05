@@ -1,33 +1,53 @@
 use crate::components::button::*;
-use crate::contexts::markdown_context::use_markdown;
-use js_sys::wasm_bindgen::JsCast;
-use web_sys::HtmlAnchorElement;
+use crate::utils::icons::*;
+use save_html::SaveHtml;
+use save_markdown::SaveMarkdown;
 use yew::prelude::*;
 
-#[function_component(SaveDropdown)]
-pub fn save_dropdown() -> Html {
-    let md_state = use_markdown().state();
-    let encoded_md = urlencoding::encode(md_state.text.as_str());
-    let text_dl = format!("data:text/markdown,{}", encoded_md);
-    let download_name = md_state.key.unwrap();
+pub mod save_html;
+pub mod save_markdown;
 
-    let handle_download = Callback::from(|_| {
-        let anchor = gloo::utils::document()
-            .get_element_by_id("dl")
-            .unwrap()
-            .unchecked_into::<HtmlAnchorElement>();
-        anchor.click();
-    });
+#[derive(Properties, Clone, PartialEq)]
+pub struct SaveDropdownProps {
+    pub open: bool,
+}
+
+#[function_component(SaveDropdown)]
+pub fn save_dropdown(SaveDropdownProps { open }: &SaveDropdownProps) -> Html {
+    let displaying = use_state(|| false);
+    {
+        let displaying = displaying.clone();
+        use_effect_with(*open, move |open| {
+            if !open {
+                displaying.set(false);
+            }
+        });
+    }
+    let onclick = {
+        let displaying = displaying.clone();
+        Callback::from(move |_| displaying.set(!*displaying))
+    };
 
     html! {
-        <>
-            <Button onclick={handle_download}>
+        <div class="relative">
+            <Button {onclick}>
                 <span class="text-md text-skin-typography font-medium">
                     {"Lưu"}
                 </span>
+
+                <span class="border-s-2 h-5 border-skin-typography my-auto"></span>
+
+                <CaretDownFill class="fill-skin-typography" />
             </Button>
 
-            <a id="dl" class="hidden" href={text_dl} download={download_name} target="_blank"></a>
-        </>
+            if *displaying {
+                <div class="absolute z-10 top-full w-full shadow shadow-skin-buttons bg-skin-buttons">
+                    <div class="flex flex-col items-center justify-start">
+                        <SaveMarkdown />
+                        <SaveHtml />
+                    </div>
+                </div>
+            }
+        </div>
     }
 }

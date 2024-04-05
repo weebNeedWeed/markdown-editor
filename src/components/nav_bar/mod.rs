@@ -25,7 +25,7 @@ pub fn nav_bar() -> Html {
             <div class="flex flex-row w-full items-stretch justify-between">
                 <div class="flex flex-row items-center gap-x-4">
                     <CreateDropdown open={*open.clone()} />
-                    <SaveDropdown />
+                    <SaveDropdown open={*open.clone()}/>
 
                     <FileName />
                 </div>
