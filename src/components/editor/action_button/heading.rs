@@ -10,10 +10,10 @@ pub fn heading() -> Html {
             <span class="font-semibold text-skin-primary px-2.5 text-lg leading-3 py-1"> {"H"} </span>
             <div class="absolute top-full left-[-1rem] w-32 p-2 rounded bg-skin-primary hidden group-hover:block text-skin-typography shadow-md">
                 <div class="w-full flex flex-col gap-y-2">
-                    <HeadingButton title={AttrValue::from("Heading 1")} insert_value={String::from("# ")} />
-                    <HeadingButton title={AttrValue::from("Heading 2")} insert_value={String::from("## ")} />
-                    <HeadingButton title={AttrValue::from("Heading 3")} insert_value={String::from("### ")} />
-                    <HeadingButton title={AttrValue::from("Heading 4")} insert_value={String::from("#### ")} />
+                    <HeadingButton title={AttrValue::from("Tiêu đề 1")} insert_value={String::from("# ")} />
+                    <HeadingButton title={AttrValue::from("Tiêu đề 2")} insert_value={String::from("## ")} />
+                    <HeadingButton title={AttrValue::from("Tiêu đề 3")} insert_value={String::from("### ")} />
+                    <HeadingButton title={AttrValue::from("Tiêu đề 4")} insert_value={String::from("#### ")} />
                 </div>
             </div>
         </div>

@@ -40,7 +40,7 @@ pub fn strikethrough() -> Html {
             onclick={handle_click}
             icon={
                 html!{<TypeStrikethrough class="fill-skin-buttons w-5 h-5"/>}}
-            title={"Strikethrough"}
+            title={"Gạch ngang"}
         />
     }
 }

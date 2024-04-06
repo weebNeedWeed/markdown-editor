@@ -40,7 +40,7 @@ pub fn table() -> Html {
             onclick={handle_click}
             icon={
                 html!{<TableIcon class="fill-skin-buttons w-5 h-5"/>}}
-            title={"Table"}
+            title={"Bảng"}
         />
     }
 }

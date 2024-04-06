@@ -34,7 +34,7 @@ pub fn quote() -> Html {
             onclick={handle_click}
             icon={
                 html!{<QuoteIcon class="fill-skin-buttons w-5 h-5"/>}}
-            title={"Quote"}
+            title={"Trích dẫn"}
         />
     }
 }

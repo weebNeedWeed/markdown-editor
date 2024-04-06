@@ -73,7 +73,7 @@ pub fn image() -> Html {
                 onclick={handle_toggle_modal.clone()}
                 icon={
                     html!{<ImageIcon class="fill-skin-buttons w-5 h-5"/>}}
-                title={"Image"}
+                title={"Ảnh"}
             />
             <Modal onsubmit={handle_submit} submit_title={"Chèn"} title={"Chèn hình ảnh"} open={*display_modal} onclose={handle_toggle_modal}>
                 <div class="flex flex-col h-full overflow-auto py-2 gap-y-2 text-skin-primary">

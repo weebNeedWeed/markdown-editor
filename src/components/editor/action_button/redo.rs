@@ -14,7 +14,7 @@ pub fn redo() -> Html {
         <ActionButton
             icon={
                 html!{<Arrow90DegRight class="fill-skin-buttons w-5 h-5"/>}}
-            title={"Redo"}
+            title={"Tái thực hiện"}
             onclick={handle_click}
         />
     }

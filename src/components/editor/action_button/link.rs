@@ -73,7 +73,7 @@ pub fn link() -> Html {
                 onclick={handle_toggle_modal.clone()}
                 icon={
                     html!{<Link45Deg class="fill-skin-buttons w-5 h-5"/>}}
-                title={"Link"}
+                title={"Liên kết"}
             />
             <Modal onsubmit={handle_submit} submit_title={"Chèn"} title={"Chèn liên kết"} open={*display_modal} onclose={handle_toggle_modal}>
                 <div class="flex flex-col h-full overflow-auto py-2 gap-y-2 text-skin-primary">

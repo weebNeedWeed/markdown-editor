@@ -14,7 +14,7 @@ pub fn undo() -> Html {
         <ActionButton
             icon={
                 html!{<Arrow90DegLeft class="fill-skin-buttons w-5 h-5"/>}}
-            title={"Undo"}
+            title={"Hoàn tác"}
             onclick={handle_click}
         />
     }

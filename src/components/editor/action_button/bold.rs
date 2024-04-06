@@ -40,7 +40,7 @@ pub fn bold() -> Html {
             onclick={handle_click}
             icon={
                 html!{<TypeBold class="fill-skin-buttons w-5 h-5"/>}}
-            title={"Bold"}
+            title={"In đậm"}
         />
     }
 }

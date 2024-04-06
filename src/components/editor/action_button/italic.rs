@@ -40,7 +40,7 @@ pub fn italic() -> Html {
             onclick={handle_click}
             icon={
                 html!{<TypeItalic class="fill-skin-buttons w-5 h-5"/>}}
-            title={"Italic"}
+            title={"In nghiêng"}
         />
     }
 }
